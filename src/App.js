@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Tab from './components/Tab';
+import KoreaPage from './components/KoreaPage';
+import JapanPage from './components/JapanPage';
 import './App.css';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('korea');
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="tabs">
+        <Tab
+          label="Korea"
+          isActive={activeTab === 'korea'}
+          onClick={() => handleTabClick('korea')}
+        />
+        <Tab
+          label="Japan"
+          isActive={activeTab === 'japan'}
+          onClick={() => handleTabClick('japan')}
+        />
+      </div>
+      <div className="content">
+        {activeTab === 'korea' && <KoreaPage />}
+        {activeTab === 'japan' && <JapanPage />}
+      </div>
     </div>
   );
 }
