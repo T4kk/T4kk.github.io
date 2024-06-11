@@ -9,7 +9,7 @@ const Itinerary = () => {
     const fetchData = async () => {
       const spreadsheetId = '1iqyyX4bVs5KfFzkROStpnqEOK_907hZq2Nu65N5g16k';
       const range = 'Itinerary!A1:I33';
-      const apiKey = 'AIzaSyD7x1llFHhKE8ssFUYsccWSckRvlKRfQ2g';
+      const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
       const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
       try {
