@@ -1,11 +1,17 @@
 import React from 'react';
+import MapContainer from './MapContainer';
+import './koreapage.css';
 
 function KoreaPage() {
+  const places = [
+    { name: 'Place 1', lat: 37.5665, lng: 126.9780 },
+    { name: 'Place 2', lat: 37.5651, lng: 126.9895 },
+  ];
+
   return (
-    <div>
+    <div className='korea-container'>
       <h2>Korea Page</h2>
-      <p>This is the page for planning your holiday in Korea.</p>
-      {/* Add more content specific to Korea */}
+      <MapContainer places={places} />
     </div>
   );
 }
